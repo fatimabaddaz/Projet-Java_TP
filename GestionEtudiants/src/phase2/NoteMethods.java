@@ -26,7 +26,6 @@ public class NoteMethods {
 			 switch(option) {
 	       case 1:
 	    	   addNote();
-	    	   showNote() ;
 	         break;
 	       case 2:
 	      	 
@@ -52,8 +51,8 @@ public class NoteMethods {
 		        myscan.nextLine();
 	             System.out.println("entrer l'id du l'etudiant ");
 		        int id_E= myscan.nextInt();
-		        System.out.println("entrer l'id de la filiere correspond a cette note");
-		       int id_F = myscan.nextInt();
+		        System.out.println("entrer l'id de Module correspond a cette note");
+		       int id_M = myscan.nextInt();
 		       
 
 		        
@@ -61,11 +60,11 @@ public class NoteMethods {
 
 		        try {
 		            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/gestioneducative","root","");
-		            String sql = "INSERT INTO note (note ,id_E,id_F) VALUES ( ?, ?,?)";
+		            String sql = "INSERT INTO note (note ,id_E,id_M) VALUES ( ?, ?,?)";
 		            PreparedStatement pstmt = connection.prepareStatement(sql);
 		            pstmt.setFloat(1,note );
 		            pstmt.setInt(2,id_E);
-		            pstmt.setInt(3, id_F);
+		            pstmt.setInt(3, id_M);
 		           
 		            pstmt.executeUpdate();
 		            pstmt.close();
@@ -90,8 +89,8 @@ public class NoteMethods {
 		        System.out.println("entrer la note");
 		        float note= myscan.nextFloat();
 		        
-		        System.out.println("entrer l'id de la filiere correspond a cette note");
-		           int id_F = myscan.nextInt();
+		        System.out.println("entrer l'id du module correspond a cette note");
+		           int id_M = myscan.nextInt();
 		        
 		       
 
@@ -101,11 +100,11 @@ public class NoteMethods {
 		      
 			    try {
 			          Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/gestioneducative","root","");
-			          String sql = "UPDATE note SET note=?,Id_F=? WHERE id_E = ?";
+			          String sql = "UPDATE note SET note=? WHERE id_E = ? and id_M=?";
 			          PreparedStatement pstmt = connection.prepareStatement(sql);
 			          pstmt.setFloat(1, note);
-			          pstmt.setInt(2, id_F);
-			          pstmt.setInt(3, id_E);
+			          pstmt.setInt(2, id_E);
+			          pstmt.setInt(3, id_M);
 			         
 			         
 			          
@@ -126,16 +125,18 @@ public class NoteMethods {
 		      
 		    System.out.println("entrer l'id du etudiant ");
 		    int id_E= myscan.nextInt();
+		    System.out.println("entrer l'id du Module ");
+		    int id_M= myscan.nextInt();
 		      
 		   
 		    
 		    try {
 		          Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/gestioneducative","root","");
-		          String sql = "DELETE FROM  note WHERE id_E= ?";
+		          String sql = "DELETE FROM  note WHERE id_E= ? and id_M=?";
 		          PreparedStatement pstmt = connection.prepareStatement(sql);
 		          
 		          pstmt.setInt(1, id_E);
-		         
+		          pstmt.setInt(2, id_M);
 		          pstmt.executeUpdate();
 		          pstmt.close();
 		          connection.close();
@@ -160,7 +161,7 @@ public class NoteMethods {
 			          
 			          ResultSet myrslt=mystmt.executeQuery("select *from note order by id_E");
 			          while(myrslt.next()) {
-			        	  System.out.println(myrslt.getInt("id_E")+"  // "+myrslt.getFloat("note")+" //    "+myrslt.getInt("Id_F"));
+			        	  System.out.println(myrslt.getInt("id_E")+"  // "+myrslt.getFloat("note")+" //    "+myrslt.getInt("Id_M"));
 			          }
 			         
 			    } 

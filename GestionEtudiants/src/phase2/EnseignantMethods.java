@@ -61,7 +61,7 @@ public class EnseignantMethods {
 		        Enseignant enseignant = new Enseignant();
 		        Scanner myscan = new Scanner(System.in);
 
-		        System.out.println("entrer l'id de léenseignat ");
+		        System.out.println("entrer l'id de l'enseignat ");
 		        int Id_Ens = myscan.nextInt();
 		       
 
@@ -83,7 +83,7 @@ public class EnseignantMethods {
 		        String grade = myscan.nextLine();
 		       
 
-		        System.out.println("entrer l'id de département correspond l'enseignant");
+		        System.out.println("entrer l'id de département correspond à ce enseignant");
 		        int Id_dept = myscan.nextInt();
 		       
 
@@ -116,7 +116,7 @@ public class EnseignantMethods {
 		  Enseignant enseignant = new Enseignant();
 	      Scanner myscan = new Scanner(System.in);
 
-	      System.out.println("entrer l'id de léenseignat ");
+	      System.out.println("entrer l'id de l'enseignat ");
 	      int Id_Ens = myscan.nextInt();
 	     
 
@@ -168,7 +168,7 @@ public class EnseignantMethods {
 	 public static void deleteEnseignantById() {
 		    Scanner myscan = new Scanner(System.in);
 		      
-		    System.out.println("entrer l'id ");
+		    System.out.println("entrer l'id d'enseignant  ");
 		    int id_Ens = myscan.nextInt();
 		      
 		   

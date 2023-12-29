@@ -4,15 +4,15 @@ public class Note {
 
     private float note;
     private int id_E;
-    private int id_F ;
+    private int id_M ;
 
     public Note() {
     }
 
-    public Note(float note, int id_E, int id_F) {
+    public Note(float note, int id_E, int id_M) {
         this.note = note;
         this.id_E= id_E;
-        this.id_F= id_F;
+        this.id_M= id_M;
     }
 
     public float getNote() {
@@ -32,12 +32,12 @@ public class Note {
 
     
 
-    public int getid_F() {
-        return id_F;
+    public int getid_M() {
+        return id_M;
     }
 
-    public void setid_F(int id_F) {
-        this.id_F = id_F;
+    public void setid_M(int id_M) {
+        this.id_M = id_M;
     }
 }
 

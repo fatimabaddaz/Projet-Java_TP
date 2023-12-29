@@ -54,15 +54,15 @@ public class DepartementMéthode {
       Departement departement=new Departement();
 	        Scanner myscan = new Scanner(System.in);
 	        
-	        System.out.println("entrer l'id ");
+	        System.out.println("entrer l'id du département ");
 	        int id = myscan.nextInt();
 	        
 	        myscan.nextLine();
 	        
-	        System.out.println("entrer titre");
+	        System.out.println("entrer le titre du département");
 	        String intitule = myscan.nextLine();
 	        
-	        System.out.println("entrer chef");
+	        System.out.println("entrer le chef de département");
 	        String chef = myscan.nextLine();
 	        
 
@@ -87,15 +87,15 @@ public class DepartementMéthode {
   public static void updateDepartementById() {
 	    Scanner myscan = new Scanner(System.in);
 	      
-	    System.out.println("entrer l'id ");
+	    System.out.println("entrer l'id du département ");
 	    int id = myscan.nextInt();
 	      
 	    myscan.nextLine();
 	      
-	    System.out.println("entrer titre");
+	    System.out.println("entrer le titre du département");
 	    String intitule = myscan.nextLine();
 	      
-	    System.out.println("entrer chef");
+	    System.out.println("entrer le chef du département");
 	    String chef = myscan.nextLine(); 
 	    try {
 	          Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/gestioneducative","root","");
@@ -119,7 +119,7 @@ public class DepartementMéthode {
   public static void deleteDepartementById() {
 	    Scanner myscan = new Scanner(System.in);
 	      
-	    System.out.println("entrer l'id ");
+	    System.out.println("entrer l'id du département");
 	    int id = myscan.nextInt();
 	      
 	   
@@ -155,7 +155,7 @@ public class DepartementMéthode {
 	          
 	          ResultSet myrslt=mystmt.executeQuery("select *from departement order by id");
 	          while(myrslt.next()) {
-	        	  System.out.println(myrslt.getInt("id")+"           |             "+myrslt.getString("intitule")+"             |            "+myrslt.getString("chef"));
+	        	  System.out.println(myrslt.getInt("id")+" || "+myrslt.getString("intitule")+" ||"+myrslt.getString("chef"));
 	          }
 	         
 	    } 
